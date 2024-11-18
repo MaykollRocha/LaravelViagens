@@ -15,7 +15,6 @@ class ViagensController extends Controller
 {
     public function index()
     {
-
         $viagens = Viagens::paginate(10);
         return view('viagens.index', compact('viagens'));
     }

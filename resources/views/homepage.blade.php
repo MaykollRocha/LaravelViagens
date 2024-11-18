@@ -19,8 +19,8 @@
         <p>Quantidade de Veiculos: {{ $countVeiculo }}</p>
         <p>Quantidade de Viagens: {{ $countViagem }}</p>
         <h3>Disponibilidades:</h3>
-        <p>Motorista Disponiceis: {{$motoristasDisponiveis->count()}}</p>
-        <p>Carros Disponiceis: {{ $countVeiculo - $countViagem }}</p>
+        <p>Motorista Disponiveis: {{$motoristasDisponiveis->count()}}</p>
+        <p>Carros Disponiveis: {{ $countVeiculo - $countViagem }}</p>
     </div>
 @endsection
 
