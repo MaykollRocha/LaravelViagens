@@ -4,12 +4,12 @@
 @section('typecad', $motorista->nome)
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 @endsection
 
 @section('content')
 
-    <<div class="form-container">
+    <div class="form-container">
         <form action="{{ route('motorista.update', $motorista->id) }}" method="post" class="form">
             @csrf()
             @method('PUT')
@@ -28,5 +28,5 @@
             </div>
             <button type="submit" class="submit-btn">Editar</button>
         </form>
-
+    </div>
 @endsection
