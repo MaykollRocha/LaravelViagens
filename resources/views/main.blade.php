@@ -7,11 +7,11 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="css/main.css">
     @yield('styles')
-
 </head>
 <body>
     <header class="custom-header">
-        <p class="title">Controle de Viagens</p>
+        <p class="title"><a href="/" style="color: inherit;">Sistema de Controle de Viagens</a></p>
+
         <div class='cadastro'>
             <nav>
                 <a href="{{route('motorista.index')}}">Motorista</a>
