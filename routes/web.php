@@ -7,26 +7,20 @@ use App\Http\Controllers\VeiculosController;
 
 /*
 As Rotas estao organizadas da seguinte forma:
-    1. referente a edicao
-    2. referente a atualizacao
-    3. referente a cadastro
-    4. referente ao armazenamento
-    5. referente a exibicao
+    1. referente a Criar
+    2. referente a Armazenar
+    3. referente a Mostrar
+    4. referente ao pagina de entreda
+    5. referente a atulizar
     6. referente a exclusao
 
-Os name estao organizado em <função que ele executa>.<nome da tabela>
-e o nome das classe no controler <função que ele executa><nome da tabela com a primeira letra maiuscula>
+Os name estao organizado em <Tabela>.<Funcão>
+e o nome das classe no controler <nome da tabela com a primeira letra maiuscula>.<função que ele executa>
 Tambem e de se perceber que as rotas tem o padrao dela como se ela vai fazer qual coisa na tabela ela ja
 comeca com o nome da tabela depois varia em ter ou nao o id as que controes e envia para o banco nao tem id
 mas a de show, delete, edit e update tem id.
 Ultima rota rota da home page.
 */
-
-
-
-// Rotas para Viagens
-
-
 
 // Rotas para Motoristas
 Route::get('/Motorista/create', [MotoristasController::class, 'create'])->name('motorista.create');
@@ -37,20 +31,6 @@ Route::get('/Motorista/{id}/edit', [MotoristasController::class, 'edit'])->name(
 Route::put('/Motorista/{id}', [MotoristasController::class, 'update'])->name('motorista.update');
 Route::delete('/Motorista/{id}/delete', [MotoristasController::class, 'delete'])->name('motorista.delete');
 
-
-
-
-/*
-Route::get('/Veiculos/{id}/edit', [ViagensController::class, 'editVeiculos'])->name('edit.veiculos');
-Route::put('/Veiculos/{id}', [ViagensController::class, 'updateVeiculos'])->name('update.veiculos');
-Route::get('/Veiculos', [ViagensController::class, 'cadastrarVeiculos'])->name('cadastros.veiculos');
-Route::post('/Veiculos', [ViagensController::class, 'storeVeiculos'])->name('store.veiculos');
-Route::get('/Veiculos/{id}', [ViagensController::class, 'showVeiculos'])->name('show.veiculos');
-Route::delete('/Veiculos/{id}/delete', [ViagensController::class, 'deleteVeiculos'])->name('delete.veiculos');
-*/
-
-
-
 // Viagens
 Route::get('/Viagens/create', [ViagensController::class, 'create'])->name('viagem.create');
 Route::post('/Viagens', [ViagensController::class, 'store'])->name('viagem.store');
@@ -60,6 +40,7 @@ Route::get('/Viagens/{id}/edit', [ViagensController::class, 'edit'])->name('viag
 Route::put('/Viagens/{id}', [ViagensController::class, 'update'])->name('viagem.update');
 Route::delete('/Viagens/{id}/delete', [ViagensController::class, 'delete'])->name('viagem.delete');
 
+// Rotas para Veiculos
 Route::get('/Veiculos/create', [VeiculosController::class, 'create'])->name('veiculo.create');
 Route::post('/Veiculos', [VeiculosController::class, 'store'])->name('veiculo.store');
 Route::get('/Veiculos/{id}', [VeiculosController::class, 'show'])->name('veiculo.show');

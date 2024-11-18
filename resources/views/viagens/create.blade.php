@@ -19,11 +19,12 @@
         </div>
 
         <div class="form-group">
-            <label for="cnh">CNH do Motorista(s):</label>
+            <label for="cnh" class="cnh-label">CNH do Motorista(s):</label>
             <div id="cnh-fields">
                 <input type="text" name="cnh[]" id="cnh" value="{{ old('cnh.0') }}">
             </div>
-            <button type="button" id="add-cnh">Adicionar CNH</button>
+            <button type="button" id="add-cnh" class="add-btn">Adicionar CNH</button>
+            <button type="button" id="remove-cnh" class="add-btn">remove CNH</button>
         </div>
 
         <div class="form-group">
@@ -50,11 +51,26 @@
 </div>
 
 <script>
+    // Ambas as funções abaixo são para adicionar e remover campos de CNH traziada pelo copilot do Visual Studio code
+    count = 1;
     document.getElementById('add-cnh').addEventListener('click', function() {
+        //Impede colocar mais de 5 Motoristas
+        if (count >= 5) {
+            return;
+        }
         var newInput = document.createElement('input');
         newInput.type = 'text';
         newInput.name = 'cnh[]';
         document.getElementById('cnh-fields').appendChild(newInput);
+        count++;
+    });
+
+    document.getElementById('remove-cnh').addEventListener('click', function() {
+        if (count <= 1) {
+            return;
+        }
+        document.getElementById('cnh-fields').removeChild(document.getElementById('cnh-fields').lastElementChild);
+        count--;
     });
 </script>
 @endsection
