@@ -14,7 +14,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Nome do Motorista</th>
+                        <th>Numero da Viagem</th>
                         <th>Veículo de Transporte</th>
                         <th>Ação</th>
                     </tr>
@@ -22,7 +22,7 @@
                 <tbody>
                     @foreach ($viagens as $viagem)
                         <tr>
-                            <td><a href="{{route('viagem.show', $viagem->id)}}"></a></td>
+                            <td><a href="{{route('viagem.show', $viagem->id)}}">Viagem {{ $viagem->id}}</a></td>
                             <td>{{ $viagem->veiculo->modelo }}</td>
                             <td><a href="{{route('viagem.edit', $viagem->id)}}">Editar</a></td>
                         </tr>

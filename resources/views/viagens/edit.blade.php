@@ -13,24 +13,25 @@
     <form action="{{ route('viagem.update', $viagem->id) }}" method="POST" class="form">
         @csrf
         @method('PUT')
-        @foreach ($motoristas as $motorista)
+        @foreach ($motoristas as $index => $motorista)
             <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" value="{{ old('nome', $motorista->nome) }}" required>
+                <label for="nome_{{ $index }}">Nome:</label>
+                <input type="text" id="nome_{{ $index }}" name="motoristas[{{ $index }}][nome]" value="{{ old("motoristas.$index.nome", $motorista->nome) }}" required>
             </div>
 
             <div class="form-group">
-                <label for="data_nascimento">Data de Nascimento:</label>
-                <input type="date" id="data_nascimento" name="data_nascimento" max="{{ date('Y-m-d', strtotime('-18 years')) }}" value="{{ old('data_nascimento', $motorista->data_nascimento) }}" required>
+                <label for="data_nascimento_{{ $index }}">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento_{{ $index }}" name="motoristas[{{ $index }}][data_nascimento]" max="{{ date('Y-m-d', strtotime('-18 years')) }}" value="{{ old("motoristas.$index.data_nascimento", $motorista->data_nascimento) }}" required>
             </div>
 
             <div class="form-group">
-                <label for="cnh">N° da CNH:</label>
-                <input type="text" id="cnh" name="cnh" pattern="\d+" title="A CNH deve conter apenas números" value="{{ old('cnh', $motorista->cnh) }}" required>
+                <label for="cnh_{{ $index }}">N° da CNH:</label>
+                <input type="text" id="cnh_{{ $index }}" name="motoristas[{{ $index }}][cnh]" pattern="\d+" title="A CNH deve conter apenas números" value="{{ old("motoristas.$index.cnh", $motorista->cnh) }}" required>
             </div>
 
             <hr>
         @endforeach
+
 
 
         <div class="form-group">
