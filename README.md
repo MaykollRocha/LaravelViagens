@@ -61,3 +61,20 @@ docker-compose exec app bash
   ```
 
 **Acesso à aplicação**: [http://localhost:8000/](http://localhost:8000/)
+
+**Gerar Dados Aleatorios de Veiculos e Motoristas**
+
+Dentro do docker-compose
+'''bash
+  php artisan tinker
+'''
+
+Depois so rodar os dois comandos abaixo separadamente
+'''bash
+  App\Models\Motoristas::factory()->count(40)->create();
+'''
+
+'''bash
+  App\Models\Veiculos::factory()->count(40)->create();
+'''
+Apos isso os dados ja foram injetados nos sistemas
