@@ -1,4 +1,4 @@
-# Sistema de Viagens em PHP framwork Laravel
+# Sistema de Viagens em PHP framework Laravel
 
 Este repositório contém a configuração do Docker de um projeto Laravel 11 utilizando PHP 8.3.
 Repositorio original do setup-docker: 
