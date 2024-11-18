@@ -11,7 +11,6 @@ class Viagens extends Model
 
     protected $fillable = [
         'renavam',
-        'cnh',
         'KmInicial',
         'KmFinal',
     ];
@@ -23,9 +22,10 @@ class Viagens extends Model
     }
 
     // Relacionamento de uma viagem com um motorista
-    public function motorista()
+    public function motoristas()
     {
-        return $this->belongsTo(Motoristas::class, 'cnh', 'cnh');
+        return $this->hasMany(Motoristas::class);
     }
+
 
 }

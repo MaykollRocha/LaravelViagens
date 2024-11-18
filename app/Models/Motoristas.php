@@ -13,10 +13,11 @@ class Motoristas extends Model
         'nome',
         'data_nascimento',
         'cnh',
+        'viagem_id',
     ];
 
-    public function viagens()
+    public function viagem()
     {
-        return $this->hasOne(Viagens::class, 'cnh', 'cnh');
+        return $this->belongsTo(Viagens::class);
     }
 }

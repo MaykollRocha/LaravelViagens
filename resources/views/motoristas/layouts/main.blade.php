@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/css/mainCadastro.css">
-    @yield('styless')
+    @yield('styles')
 </head>
 <body>
     <header class="custom-header">
         <div class="header-content">
-            <p class="title">Editar @yield('typecad')</p>
+            <p class="title">@yield('typecad')</p>
             <nav class="header-nav">
                 <a href="/" class="nav-link home-link">HOME</a>
             </nav>

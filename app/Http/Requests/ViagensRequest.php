@@ -23,7 +23,6 @@ class ViagensRequest extends FormRequest
     {
         return [
             'renavam' => 'required|string|exists:veiculos,renavam',  // Garantir que renavam exista na tabela veiculos
-            'cnh' => 'required|string|exists:motoristas,cnh',         // Garantir que cnh exista na tabela motoristas
             'KmInicial' => 'required|numeric|min:0',                  // Verificar se KmInicial é numérico e maior que 0
             'KmFinal' => 'required|numeric|min:0|gt:KmInicial',       // Verificar se KmFinal é maior que KmInicial
         ];

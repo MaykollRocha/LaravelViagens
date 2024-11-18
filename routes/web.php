@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViagensController;
-
+use App\Http\Controllers\MotoristasController;
+use App\Http\Controllers\VeiculosController;
 
 /*
 As Rotas estao organizadas da seguinte forma:
@@ -24,30 +25,50 @@ Ultima rota rota da home page.
 
 
 // Rotas para Viagens
-Route::get('/Viagens/{id}/edit', [ViagensController::class, 'editViagens'])->name('edit.viagens');
-Route::put('/Viagens/{id}', [ViagensController::class, 'updateViagens'])->name('update.viagens');
-Route::get('/Viagens', [ViagensController::class, 'cadastrarViagens'])->name('cadastros.viagens');
-Route::post('/Viagens', [ViagensController::class, 'storeViagens'])->name('store.viagens');
-Route::get('/Viagens/{id}', [ViagensController::class, 'showViagens'])->name('show.viagens');
-Route::delete('/Viagens/{id}/delete', [ViagensController::class, 'deleteViagens'])->name('delete.viagens');
+
 
 
 // Rotas para Motoristas
-Route::get('/Motorista/{id}/edit', [ViagensController::class, 'editMotoristas'])->name('edit.motorista');
-Route::put('/Motorista/{id}', [ViagensController::class, 'updateMotoristas'])->name('update.motorista');
-Route::get('/Motorista', [ViagensController::class, 'cadastrarMotoristas'])->name('cadastros.motorista');
-Route::post('/Motorista', [ViagensController::class, 'storeMotoristas'])->name('store.motorista');
-Route::get('/Motorista/{id}', [ViagensController::class, 'showMotoristas'])->name('show.motorista');
-Route::delete('/Motorista/{id}/delete', [ViagensController::class, 'deleteMotoristas'])->name('delete.motorista');
+Route::get('/Motorista/create', [MotoristasController::class, 'create'])->name('motorista.create');
+Route::post('/Motorista', [MotoristasController::class, 'store'])->name('motorista.store');
+Route::get('/Motorista/{id}', [MotoristasController::class, 'show'])->name('motorista.show');
+Route::get('/Motorista', [MotoristasController::class, 'index'])->name('motorista.index');
+Route::get('/Motorista/{id}/edit', [MotoristasController::class, 'edit'])->name('motorista.edit');
+Route::put('/Motorista/{id}', [MotoristasController::class, 'update'])->name('motorista.update');
+Route::delete('/Motorista/{id}/delete', [MotoristasController::class, 'delete'])->name('motorista.delete');
 
 
-// Rotas para Veiculos
+
+
+/*
 Route::get('/Veiculos/{id}/edit', [ViagensController::class, 'editVeiculos'])->name('edit.veiculos');
 Route::put('/Veiculos/{id}', [ViagensController::class, 'updateVeiculos'])->name('update.veiculos');
 Route::get('/Veiculos', [ViagensController::class, 'cadastrarVeiculos'])->name('cadastros.veiculos');
 Route::post('/Veiculos', [ViagensController::class, 'storeVeiculos'])->name('store.veiculos');
 Route::get('/Veiculos/{id}', [ViagensController::class, 'showVeiculos'])->name('show.veiculos');
 Route::delete('/Veiculos/{id}/delete', [ViagensController::class, 'deleteVeiculos'])->name('delete.veiculos');
+*/
+
+
+
+// Viagens
+Route::get('/Viagens/create', [ViagensController::class, 'create'])->name('viagem.create');
+Route::post('/Viagens', [ViagensController::class, 'store'])->name('viagem.store');
+Route::get('/Viagens/{id}', [ViagensController::class, 'show'])->name('viagem.show');
+Route::get('/Viagens', [ViagensController::class, 'index'])->name('viagem.index');
+Route::get('/Viagens/{id}/edit', [ViagensController::class, 'edit'])->name('viagem.edit');
+Route::put('/Viagens/{id}', [ViagensController::class, 'update'])->name('viagem.update');
+Route::delete('/Viagens/{id}/delete', [ViagensController::class, 'delete'])->name('viagem.delete');
+
+Route::get('/Veiculos/create', [VeiculosController::class, 'create'])->name('veiculo.create');
+Route::post('/Veiculos', [VeiculosController::class, 'store'])->name('veiculo.store');
+Route::get('/Veiculos/{id}', [VeiculosController::class, 'show'])->name('veiculo.show');
+Route::get('/Veiculos', [VeiculosController::class, 'index'])->name('veiculo.index');
+Route::get('/Veiculos/{id}/edit', [VeiculosController::class, 'edit'])->name('veiculo.edit');
+Route::put('/Veiculos/{id}', [VeiculosController::class, 'update'])->name('veiculo.update');
+Route::delete('/Veiculos/{id}/delete', [VeiculosController::class, 'delete'])->name('veiculo.delete');
+
+
 
 
 //Caminho principal

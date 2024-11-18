@@ -104,6 +104,9 @@ body {
     height: 60px; /* Definir uma altura para o rodapé */
 }
 
+
+
+
 /* Responsividade */
 @media (max-width: 768px) {
     .custom-header .title {

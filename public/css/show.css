@@ -1,11 +1,5 @@
-@extends('show.layouts.main')
-
-@section('title', 'Show Motorista')
-@section('typecad', $motorista->nome)
-
-@section('styless')
-    <style>
-        * {
+/* RESET para garantir consistência entre navegadores */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -43,7 +37,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Alinhamento à esquerda */
-    background-color: #ecf0f1; /* Fundo claro */
+    background-color: #ecf0f1; /* Fundo claro para a caixa */
     padding: 20px;
     padding-top: 80px; /* Ajuste para evitar sobreposição com o header fixo */
     border-radius: 8px;
@@ -91,27 +85,3 @@ button:hover {
 button:focus {
     outline: none; /* Remove o outline padrão */
 }
-
-    </style>
-@endsection
-
-@section('content')
-    <div class="Show">
-        <div class="group">
-            <p for="modelo">Nome: {{ $motorista->nome }}</p>
-        </div>
-        <div class="group">
-            <p for="ano">Ano de Nacimento: {{ $motorista->data_nascimento }} </p>
-            <p for="ano">Idade: {{ \Carbon\Carbon::parse($motorista->data_nascimento)->age }} anos</p>
-        </div>
-        <div class="group">
-            <p for="data_aquisicao">CNH: {{ $motorista->cnh }}</p>
-        </div>
-
-        <form action="{{ route('delete.motorista', $motorista->id) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit">Deletar</button>
-        </form>
-    </div>
-@endsection

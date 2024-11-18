@@ -1,14 +1,16 @@
-@extends('cadastros.layout.main')
+@extends('veiculos.layouts.main')
 
 @section('title', 'Cadastro Veiculos')
 @section('typecad', 'Veiculos')
+
 @section('styles')
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/erros.css">
+<link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+<link rel="stylesheet" href="{{ asset('css/erros.css') }}">
 @endsection
+
 @section('content')
     <div class="form-container">
-            <form action="{{route('store.veiculos')}}" method="post" class="form">
+            <form action="{{route('veiculo.store')}}" method="post" class="form">
                 @csrf()
                 <div class="form-group">
                 <label for="modelo">Modelo:</label>

@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('viagens', function (Blueprint $table) {
             $table->id();
             $table->string('renavam');
-            $table->string('cnh');
             $table->float('KmInicial');
             $table->float('KmFinal');
             $table->timestamps();
 
             // Definindo as chaves estrangeiras
             $table->foreign('renavam')->references('renavam')->on('veiculos');
-            $table->foreign('cnh')->references('cnh')->on('motoristas');
         });
     }
 

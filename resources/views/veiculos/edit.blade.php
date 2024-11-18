@@ -1,16 +1,16 @@
-@extends('edit.layouts.main')
+@extends('motoristas.layouts.main')
 
-@section('title', 'Editor Veiculos')
-@section('typecad', $veiculo->modelo)
+@section('title', 'Editor Motorista')
+@section('typecad', "Editar veiculo $veiculo->nome")
 
-@section('styless')
-    <link rel="stylesheet" href="/css/editViagens.css">
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 @endsection
 
 @section('content')
 
     <div class="form-container">
-        <form action="{{ route('update.veiculos', $veiculo->id) }}" method="post" class="form">
+        <form action="{{ route('veiculo.update', $veiculo->id) }}" method="post" class="form">
             @csrf
             <input type="hidden" name="_method" value="PUT">
 

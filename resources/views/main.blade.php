@@ -13,11 +13,18 @@
     <header class="custom-header">
         <p class="title">Controle de Viagens</p>
         <div class='cadastro'>
+            <nav>
+                <a href="{{route('motorista.index')}}">Motorista</a>
+                <a href="{{route('veiculo.index')}}">Veiculos</a>
+                <a href="{{route('viagem.index')}}">Viagens</a>
+            </nav>
+        </div>
+        <div class='cadastro'>
             <p class="section-title">Cadastrar</p>
             <nav>
-                <a href="{{route('store.motorista')}}">Motorista</a>
-                <a href="{{route('store.veiculos')}}">Veiculos</a>
-                <a href="{{route('cadastros.viagens')}}">Viagens</a>
+                <a href="{{route('motorista.create')}}">Motorista</a>
+                <a href="{{route('veiculo.create')}}">Veiculos</a>
+                <a href="{{route('viagem.create')}}">Viagens</a>
             </nav>
         </div>
     </header>

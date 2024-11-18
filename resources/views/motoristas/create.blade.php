@@ -1,14 +1,16 @@
-@extends('cadastros.layout.main')
+@extends('motoristas.layouts.main')
 
 @section('title', 'Cadastro Motorista')
-@section('typecad', 'Motoristas')
+@section('typecad', 'Cadastro de Motoristas')
+
 @section('styles')
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/erros.css">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/erros.css') }}">
 @endsection
+
 @section('content')
     <div class="form-container">
-        <form action="{{ route('store.motorista') }}" method="post" class="form">
+        <form action="{{ route('motorista.store') }}" method="post" class="form">
             @csrf()
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -34,6 +36,4 @@
                     @endif
             </div>
         </form>
-
-
 @endsection
