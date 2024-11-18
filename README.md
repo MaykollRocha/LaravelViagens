@@ -60,4 +60,4 @@ docker-compose exec app bash
   php artisan migrate
   ```
 
-**Acesso à aplicação**: [http://localhost](http://localhost)
+**Acesso à aplicação**: [http://localhost:8000/](http://localhost:8000/)
