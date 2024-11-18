@@ -1,6 +1,6 @@
-# Setup Docker Laravel 11 com PHP 8.3
+# Sistema de Viagens em PHP framwork Laravel
 
-Este repositório contém a configuração do Docker para um projeto Laravel 11 utilizando PHP 8.3. O objetivo é fornecer uma configuração de desenvolvimento ágil e isolada para a aplicação, utilizando Docker Compose.
+Este repositório contém a configuração do Docker de um projeto Laravel 11 utilizando PHP 8.3.
 Repositorio original do setup-docker: 
 https://github.com/especializati/setup-docker-laravel/tree/laravel-11-with-php-8.3
 
