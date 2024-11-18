@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Veiculos;
-use App\Http\Requests\VeiculosRequest;
-use App\Http\Requests\UpdateVeiculoRequest;
 
 use App\Models\Motoristas;
-use App\Http\Requests\MotoristaRequest;
 
 use App\Models\Viagens;
 use App\Http\Requests\ViagensRequest;

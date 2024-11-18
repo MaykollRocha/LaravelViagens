@@ -1,7 +1,8 @@
-@extends('viagens.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Show Viagens')
 @section('typecad', "Vaigem $viagem->id")
+@section('url', route('viagem.index'))
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">

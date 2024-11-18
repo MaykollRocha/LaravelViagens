@@ -1,7 +1,8 @@
-@extends('viagens.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Editor Viagens')
-@section('typecad', "viagem do motorista(s)")
+@section('typecad', "Viagem do motorista(s)")
+@section('url', route('viagem.index'))
 
 @section('styles')
     <link rel="stylesheet" href="/css/editViagens.css">

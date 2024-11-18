@@ -1,7 +1,8 @@
-@extends('motoristas.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Show Motorista')
 @section('typecad', "Detalhes do Motorista $motorista->nome")
+@section('url', route('motorista.index'))
 
 @section('styles')
     <link rel="stylesheet" href="/css/show.css">

@@ -1,7 +1,8 @@
-@extends('motoristas.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Editor Motorista')
 @section('typecad', "Editar veiculo $veiculo->nome")
+@section('url', route('veiculo.index'))
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">

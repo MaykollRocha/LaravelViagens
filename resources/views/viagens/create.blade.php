@@ -1,7 +1,8 @@
-@extends('viagens.layouts.main')
+@extends('layouts.main')
 
-@section('title', 'Cadastro Veiculos')
-@section('typecad', 'Veiculos')
+@section('title', 'Cadastro Viagens')
+@section('typecad', 'Cadastramento de Viagem')
+@section('url', route('viagem.index'))
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/forms.css') }}">

@@ -1,7 +1,8 @@
-@extends('veiculos.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Show Veiculos')
 @section('typecad', "Detalhes do Veiculo $veiculo->modelo")
+@section('url', route('veiculo.index'))
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">

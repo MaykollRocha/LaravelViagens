@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViagensController;
 use App\Http\Controllers\MotoristasController;
 use App\Http\Controllers\VeiculosController;
-
+use App\Models\Veiculos;
+use App\Models\Motoristas;
+use App\Models\Viagens;
 /*
 As Rotas estao organizadas da seguinte forma:
     1. referente a Criar
@@ -53,5 +55,10 @@ Route::delete('/Veiculos/{id}/delete', [VeiculosController::class, 'delete'])->n
 
 
 //Caminho principal
-Route::get('/', [ViagensController::class, 'index'])->name('home');
+Route::get('/',function () {
+    $veiculos = Veiculos::all();
+    $motoristas = Motoristas::all();
+    $viagens = Viagens::all();
+    return view('homepage', compact('veiculos', 'motoristas', 'viagens'));
+})->name('home');
 

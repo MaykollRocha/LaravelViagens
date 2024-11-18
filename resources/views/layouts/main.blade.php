@@ -13,7 +13,7 @@
         <div class="header-content">
             <p class="title">@yield('typecad')</p>
             <nav class="header-nav">
-                <a href="/" class="nav-link home-link">HOME</a>
+            <a href=@yield('url') class="nav-link home-link">HOME</a>
             </nav>
         </div>
     </header>
@@ -27,4 +27,3 @@
     </footer>
 </body>
 </html>
-

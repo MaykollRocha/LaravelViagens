@@ -1,7 +1,8 @@
-@extends('veiculos.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Cadastro Veiculos')
 @section('typecad', 'Veiculos')
+@section('url', route('veiculo.index'))
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
