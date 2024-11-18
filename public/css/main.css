@@ -1,0 +1,78 @@
+/* Estilos gerais para o body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos do cabeçalho */
+.custom-header {
+    background-color: #002f6c; /* Azul escuro */
+    color: #f4f1e1; /* Branco meio marshmallow tostado */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0;
+    width: 100%;
+    z-index: 0; /* Garante que o cabeçalho fique acima do conteúdo */
+    box-sizing: border-box;
+    height: 100px; /* Definir uma altura para o cabeçalho */
+}
+
+.custom-header .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.custom-header .cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens */
+    max-width: 300px; /* Limita a largura do container */
+    padding: 10px;
+}
+
+.custom-header .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center; /* Centraliza o título */
+}
+
+.custom-header nav {
+    display: flex;
+    flex-direction: row; /* Exibe os links em linha */
+    justify-content: center; /* Centraliza os links */
+}
+
+.custom-header nav a {
+    text-decoration: none;
+    color: #f4f1e1; /* Branco meio marshmallow tostado */
+    margin: 5px 10px; /* Ajuste a margem horizontal para espaçar os links */
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.custom-header nav a:hover {
+    background-color: #004a99; /* Azul mais claro para o hover */
+}
+
+/* Garantir que o conteúdo principal comece abaixo do cabeçalho fixo */
+main {
+    margin-top: 120px; /* Espaço suficiente para o cabeçalho */
+}
+
+/* Estilo para o rodapé */
+.custom-footer {
+    background-color: #002f6c; /* Azul escuro */
+    color: #f4f1e1; /* Branco meio marshmallow tostado */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 0; /* Garante que o rodapé fique acima do cabeçalho */
+    box-sizing: border-box;
+    height: 60px; /* Definir uma altura para o rodapé */
+}

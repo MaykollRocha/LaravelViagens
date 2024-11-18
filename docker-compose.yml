@@ -1,0 +1,52 @@
+services:
+    # image project
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+        networks:
+            - laravel
+
+    # nginx
+    nginx:
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - laravel
+
+    # db postgres
+    postgres:
+        image: postgres:14
+        container_name: entrevista_postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: "postgres"
+            POSTGRES_DB: entrevista
+        ports:
+            - "5432:5432"
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./storage/database:/var/lib/postgresql/data
+        networks:
+            - laravel
+
+    # redis
+    redis:
+        image: redis:latest
+        networks:
+            - laravel
+
+networks:
+    laravel:
+        driver: bridge

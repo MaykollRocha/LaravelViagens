@@ -1,0 +1,119 @@
+/* Estilo geral da página */
+body {
+    background-color: #121212;
+    color: #f4f1e1;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.Container {
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os títulos dentro de .Container */
+.Container h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #f4f1e1;
+    margin-bottom: 20px;
+}
+
+/* Estilo geral da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Borda da tabela */
+table, th, td {
+    border: 1px solid #444;
+}
+
+/* Estilo dos cabeçalhos da tabela */
+th {
+    background-color: #333;
+    color: #f4f1e1;
+    padding: 12px;
+}
+
+/* Estilo das células */
+td {
+    background-color: #252525;
+    color: #f4f1e1;
+    padding: 12px;
+    transition: background-color 0.3s;
+}
+
+/* Estilo para as células quando o mouse passa por cima */
+td:hover {
+    background-color: #444;
+}
+
+/* Melhora o visual das células vazias */
+td:empty {
+    background-color: #333;
+}
+
+/* Estilo para as linhas alternadas */
+tbody tr:nth-child(even) td {
+    background-color: #2a2a2a;
+}
+
+/* Estilo para os botões de navegação (abas) */
+.tabs {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tab-button {
+    background-color: #004a99;
+    color: #f4f1e1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #939faa;
+}
+
+.tab-button:focus {
+    outline: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;  /* Espaçamento entre os itens */
+}
+
+.pagination .page-item {
+    list-style: none;  /* Remove o estilo de lista padrão */
+}
+
+.pagination .page-link {
+    padding: 5px 10px;
+    margin: 0;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination .page-link:hover {
+    background-color: #007bff;
+    color: white;
+}

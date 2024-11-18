@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+    background-color: #f8d7da; /* Cor de fundo vermelha clara para indicar erro */
+    color: #721c24; /* Cor do texto para um vermelho mais escuro */
+    border: 1px solid #f5c6cb; /* Borda mais clara para combinar com o fundo */
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 400px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li:last-child {
+    margin-bottom: 0;
+}
+ul li::before {
+    content: "⚠️";
+    margin-right: 8px;
+    font-size: 18px;
+    vertical-align: middle;
+}
