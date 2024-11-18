@@ -80,7 +80,7 @@ class ViagensController extends Controller
         }
 
         // Atualiza os dados do veículo
-        $veiculo = Veiculos::where('renavam', $viagem->veiculo->renavam)->first();
+        $veiculo = Veiculos::where('renavam', $request->renavam)->first();
         if ($veiculo) {
             $veiculo->update($request->only([
                 'modelo',
@@ -96,21 +96,23 @@ class ViagensController extends Controller
             'KmInicial',
             'KmFinal'
         ]));
-
+        $motoristas = Motoristas::where('viagem_id', $viagem->id)->get();
         // Itera sobre os motoristas e atualiza cada um
         if ($request->has('motoristas')) {
-            foreach ($request->motoristas as $dadosMotorista) {
-                // Encontra o motorista pelo CNH
-                $motorista = Motoristas::where('viagem_id', $viagem->id)->first();
-
-                if ($motorista) {
-                    // Atualiza os dados do motorista
-                    $motorista->update([
-                        'nome' => $dadosMotorista['nome'],
-                        'data_nascimento' => $dadosMotorista['data_nascimento'],
-                        'cnh' => $dadosMotorista['cnh']
+            foreach ($request->motoristas as $index => $motorista) {
+                if($motoristas[$index]['cnh'] == $motorista['cnh']){
+                    $motoristas[$index]->update([
+                        'nome' => $motorista['nome'],
+                        'viagem_id' => $viagem->id
+                    ]);
+                }else{
+                    $motoristas[$index]->update([
+                        'nome' => $motorista['nome'],
+                        'viagem_id' => $viagem->id,
+                        'cnh' => $motorista['cnh']
                     ]);
                 }
+
             }
         }
         return redirect()->route('viagem.index')->with('success', 'Viagem e motoristas atualizados com sucesso');
