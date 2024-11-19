@@ -30,7 +30,7 @@ class VeiculosController extends Controller
      {
          // Verifica se o veículo existe
          if (!$veiculo = Veiculos::find($id)) {
-             return redirect()->route('veiculo.index')->with('message', 'Veículo não encontrado');
+             return redirect()->route('veiculo.index')->with('error', 'Veículo não encontrado');
          }
          // Retorna a view de edição com os dados do veículo
          return view('veiculos.edit', compact('veiculo'));
@@ -40,7 +40,7 @@ class VeiculosController extends Controller
      public function update(Request $request, string $id)
      {
          if(!$veiculo = Veiculos::find($id)){
-             return redirect()->route('veiculo.index')->with('message', 'Veículo não encontrado');
+             return redirect()->route('veiculo.index')->with('error', 'Veículo não encontrado');
          }
 
          $veiculo->update($request->all());
@@ -51,7 +51,7 @@ class VeiculosController extends Controller
      {
          // Verifica se o veículo existe
          if (!$veiculo = Veiculos::find($id)) {
-             return redirect()->route('veiculo.index')->with('message', 'Veículo não encontrado');
+             return redirect()->route('veiculo.index')->with('error', 'Veículo não encontrado');
          }
          // Retorna a view de edição com os dados do veículo
          return view('veiculos.show', compact('veiculo'));
@@ -61,11 +61,11 @@ class VeiculosController extends Controller
      {
          // Verifica se o veículo existe
          if (!$veiculo = Veiculos::find($id)) {
-             return redirect()->route('veiculo.index')->with('message', 'Veículo não encontrado');
+             return redirect()->route('veiculo.index')->with('error', 'Veículo não encontrado');
          }
 
          $veiculo->delete();
          // Retorna a view de edição com os dados do veículo
-         return redirect()->route('veiculo.index')->with('Success', 'Veículo Deletado com sucesso');
+         return redirect()->route('veiculo.index')->with('success', 'Veículo Deletado com sucesso');
      }
 }

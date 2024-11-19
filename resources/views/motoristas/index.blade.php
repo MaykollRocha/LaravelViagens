@@ -8,6 +8,7 @@
 @section('content')
 <div class="Container" id="motoristas">
     <h2>Motoristas Disponiveis</h2>
+    <x-alerts/>
     @if ($motoristas->count() > 0)
         <table>
             <thead>

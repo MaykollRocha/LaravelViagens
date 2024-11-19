@@ -9,6 +9,7 @@
 @section('content')
     <div class="Container" id="viagens">
         <h2>Viagens em Andamento</h2>
+        <x-alerts/>
         @if($viagens->count() == 0)
             <p>Não há viagens em andamento.</p>
         @else

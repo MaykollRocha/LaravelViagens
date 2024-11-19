@@ -55,11 +55,6 @@
             <input type="number" id="kms_rodados_aquisicao" name="kms_rodados_aquisicao" min="0" value="{{ old('kms_rodados_aquisicao', $veiculo->kms_rodados_aquisicao) }}" required>
         </div>
 
-        <div class="form-group">
-            <label for="renavam">Renavam:</label>
-            <input type="text" id="renavam" name="renavam" pattern="\d{11}" title="O Renavam deve ter 11 dígitos" value="{{ old('renavam', $veiculo->renavam) }}" required>
-        </div>
-
         <hr>
 
         <div class="form-group">
@@ -75,5 +70,4 @@
         <button type="submit" class="submit-btn">Editar</button>
     </form>
 </div>
-
 @endsection

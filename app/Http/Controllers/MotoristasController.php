@@ -25,14 +25,14 @@ class MotoristasController extends Controller
     public function store(MotoristaRequest $request)
     {
         Motoristas::create(request()->all());
-        return  redirect()->route('motorista.index');
+        return  redirect()->route('motorista.index')->with('success', 'Motorista Criado com sucesso');;
     }
 
     public function edit(string $id)
     {
         // Verifica se o veículo existe
         if (!$motorista = Motoristas::find($id)) {
-            return redirect()->route('motorista.index')->with('message', 'Motorista não encontrado');
+            return redirect()->route('motorista.index')->with('error', 'Motorista não encontrado');
         }
 
         // Retorna a view de edição com os dados do veículo
@@ -43,7 +43,7 @@ class MotoristasController extends Controller
     public function update(Request $request, string $id)
     {
         if(!$motorista = Motoristas::find($id)){
-            return redirect()->route('motorista.index')->with('message', 'Motorista não encontrado');
+            return redirect()->route('motorista.index')->with('error', 'Motorista não encontrado');
         }
 
         $motorista->update($request->all());
@@ -55,7 +55,7 @@ class MotoristasController extends Controller
     {
         // Verifica se o veículo existe
         if (!$motorista = Motoristas::find($id)) {
-            return redirect()->route('user.index')->with('message', 'Motorista não encontrado');
+            return redirect()->route('motorista.index')->with('message', 'Motorista não encontrado');
         }
         // Retorna a view de edição com os dados do veículo
         return view('motoristas.show', compact('motorista'));
@@ -70,6 +70,6 @@ class MotoristasController extends Controller
 
         $motorista->delete();
         // Retorna a view de edição com os dados do veículo
-        return redirect()->route('motorista.index')->with('Success', 'Motorista Deletado com sucesso');
+        return redirect()->route('motorista.index')->with('success', 'Motorista Deletado com sucesso');
     }
 }

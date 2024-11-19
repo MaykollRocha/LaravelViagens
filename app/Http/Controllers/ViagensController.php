@@ -45,7 +45,7 @@ class ViagensController extends Controller
                 $motorista->update(['viagem_id' => $viagem->id]);
             }
         } else {
-            return back()->with('message', 'Motorista não encontrado');
+            return back()->with('error', 'Motorista não encontrado');
         }
 
         return redirect()->route('viagem.index')->with('success', 'Viagem cadastrada com sucesso');
@@ -57,7 +57,7 @@ class ViagensController extends Controller
     {
         // Verifica se a viagem existe
         if (!$viagem = Viagens::find($id)) {
-            return redirect()->route('viagem.index')->with('message', 'Viagem não encontrada');
+            return redirect()->route('viagem.index')->with('error', 'Viagem não encontrada');
         }
 
         $motoristas = Motoristas::where('viagem_id', $viagem->id)->get();
@@ -76,14 +76,13 @@ class ViagensController extends Controller
         }
 
         // Atualiza os dados do veículo
-        $veiculo = Veiculos::where('renavam', $request->renavam)->first();
+        $veiculo = Veiculos::where('renavam', $viagem->veiculo->renavam)->first();
         if ($veiculo) {
             $veiculo->update($request->only([
                 'modelo',
                 'ano',
                 'data_aquisicao',
                 'kms_rodados_aquisicao',
-                'renavam'
             ]));
         }
 
@@ -99,12 +98,14 @@ class ViagensController extends Controller
                 if($motoristas[$index]['cnh'] == $motorista['cnh']){
                     $motoristas[$index]->update([
                         'nome' => $motorista['nome'],
+                        'data_nascimento' => $motorista['data_nascimento'],
                         'viagem_id' => $viagem->id
                     ]);
                 }else{
                     $motoristas[$index]->update([
                         'nome' => $motorista['nome'],
                         'viagem_id' => $viagem->id,
+                        'data_nascimento' => $motorista['data_nascimento'],
                         'cnh' => $motorista['cnh']
                     ]);
                 }
@@ -119,7 +120,7 @@ class ViagensController extends Controller
     public function show(string $id)
     {
         if (!$viagem = Viagens::find($id)) {
-            return redirect()->route('viagem.index')->with('message', 'Motorista não encontrado');
+            return redirect()->route('viagem.index')->with('error', 'Motorista não encontrado');
         }
 
         $motoristas = Motoristas::where('viagem_id', $viagem->id)->get();
@@ -131,14 +132,14 @@ class ViagensController extends Controller
     public function delete(string $id)
     {
         if (!$viagem = Viagens::find($id)) {
-            return redirect()->route('viagem.index')->with('message', 'Viagens não encontrado');
+            return redirect()->route('viagem.index')->with('error', 'Viagens não encontrado');
         }
         $motoristas = Motoristas::where('viagem_id', $viagem->id)->get();
         foreach ($motoristas as $motorista) {
             $motorista->update(['viagem_id' => null]);
         }
         $viagem->delete();
-        return redirect()->route('viagem.index')->with('Success', 'Viagens Deletado com sucesso');
+        return redirect()->route('viagem.index')->with('success', 'Viagens Deletado com sucesso');
     }
 
 }
